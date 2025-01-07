@@ -4,7 +4,8 @@ import { Navbar, Container, Nav, Row, Col} from 'react-bootstrap'
 import bg from '/bg.png'
 import data from './data.js'
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
-import Detail from './Detail.jsx'
+import Detail from './routes/Detail.jsx'
+import Cart from './routes/Cart.jsx'
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
         let copy = [...shoes]
         copy.sort((a,b)=> a.title.toLowerCase() > b.title.toLowerCase() ? 1:-1)
         제목변경(copy)
-       }}> 정렬버튼 </button>
+       }}> 정렬버튼! </button>
  
       <Navbar bg="light" data-bs-theme="light">
         <Container>
@@ -49,6 +50,7 @@ function App() {
           </div>
         } />
         <Route path='/detail/:id' element={ <Detail shoes={shoes} /> } />
+        <Route path='/cart' element={ <Cart/> }/>
        
 
        
@@ -60,10 +62,6 @@ function App() {
        
       </Routes>
 
-
-      <Link to='/'>홈</Link>
-      <p></p>
-      <Link to='/detail'>상세페이지</Link>
 
     </div>
   )
